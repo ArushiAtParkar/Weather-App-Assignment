@@ -15,7 +15,7 @@ fetch("https://restcountries.com/v2/all")
         <p><strong>Capital:</strong> ${country.capital || "N/A"}</p>
         <p><strong>Region:</strong> ${country.region}</p>
         <p><strong>Country Code:</strong> ${country.alpha3Code}</p>
-        <button onclick="getWeather('${country.capital}' , '${country.name}')"> Weather </button>
+        <button onclick="getWeather('${country.capital}')"> Weather </button>
       `;
 
       container.appendChild(card);
@@ -28,7 +28,7 @@ fetch("https://restcountries.com/v2/all")
 
 
 
-function getWeather(capital, countryName){
+function getWeather(capital){
   if(!capital){
     alert('error! no data available');
     return;
