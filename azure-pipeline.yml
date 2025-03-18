@@ -1,0 +1,22 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  - main  # Run pipeline when changes are pushed to the 'main' branch
+ 
+pool:
+  vmImage: 'ubuntu-latest'  # Use a Linux VM to run the pipeline
+ 
+steps:
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(Build.SourcesDirectory)'  # Where your repo is cloned
+      Contents: '**'  # Copy all files
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'  # Staging location for artifacts
+ 
+  - task: PublishBuildArtifacts@1
+    inputs:
+      ArtifactName: 'drop'  # Name of the published artifact
+      PathToPublish: '$(Build.ArtifactStagingDirectory)'  # Path of files to publish
