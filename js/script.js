@@ -51,3 +51,4 @@ function getWeather(capital){
       alert("couldnt fetch weather");
     });
 }
+//new addition 
